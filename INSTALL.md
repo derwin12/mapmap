@@ -138,9 +138,12 @@ Build on Windows
 ----------------
 
 ## Build dynamic version to debug project:
-- Download and install gstreamer-x86 [runtime](https://gstreamer.freedesktop.org/data/pkg/windows/1.16.2/gstreamer-1.0-mingw-x86-1.16.2.msi) and [devel](https://gstreamer.freedesktop.org/data/pkg/windows/1.16.2/gstreamer-1.0-devel-mingw-x86-1.16.2.msi)
-- Download and install [Qt5 MinGW incl. QtCreator](https://www.qt.io/download-thank-you?os=windows)
-- Add the GStreamer bin path (e.g. C:\gstreamer\1.0\x86\bin) to PATH variable into the QtCreator project build enviroment settings
+- Download and install gstreamer-x86 [runtime](https://gstreamer.freedesktop.org/data/pkg/windows/1.26.3/msvc/gstreamer-1.0-msvc-x86_64-1.26.3.msi) and [devel](https://gstreamer.freedesktop.org/data/pkg/windows/1.26.3/msvc/gstreamer-1.0-devel-msvc-x86_64-1.26.3.msi)
+- Download and install Qt (https://www.qt.io/product/development-tools) - select the personal, free versions then during the download select the Archive option under the Show menu. Select all of Qt 5.15.2.
+- Update your env:
+  GSTREAMER_1_0_ROOT_X86=C:\Program Files\gstreamer\1.0\msvc_x86_64
+  Add QT to your Path:  C:\Qt\5.15.2\msvc2019_64\bin
+  Add gstreamer to your Path: C:\Program Files\gstreamer\1.0\msvc_x86_64\bin
 - Build and run MapMap project within QtCreator (Ctrl-R)
 
 ## Build static version for release:
