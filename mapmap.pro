@@ -8,7 +8,16 @@ TEMPLATE = app
 VERSION = 0.6.3
 TARGET = mapmap
 
-DEFINES += UNICODE QT_THREAD_SUPPORT QT_CORE_LIB QT_GUI_LIB QT_MESSAGELOGCONTEXT
+DEFINES += \
+    UNICODE \
+    _UNICODE \
+    WIN32 \
+    WIN64 \
+    QT_THREAD_SUPPORT \
+    QT_MESSAGELOGCONTEXT \
+    QT_DISABLE_DEPRECATED_BEFORE=0
+
+QT += core gui widgets opengl multimedia webenginewidgets printsupport webenginecore quick xml qmlmodels webchannel qml network positioning
 
 include(src/core/core.pri)
 include(src/shape/shape.pri)
@@ -27,8 +36,18 @@ RESOURCES = \
     main.qrc \
     translations/translation.qrc \
     docs/documentation.qrc \
-    resources/interface.qrc \
-    main.qrc # Main resource file
+    resources/interface.qrc
+
+# GStreamer dependencies
+INCLUDEPATH += \
+    "C:/Program Files/gstreamer/1.0/msvc_x86_64/lib/gstreamer-1.0/include" \
+    "C:/Program Files/gstreamer/1.0/msvc_x86_64/include/glib-2.0" \
+    "C:/Program Files/gstreamer/1.0/msvc_x86_64/lib/glib-2.0/include"
+
+LIBS += -L"C:/Program Files/gstreamer/1.0/msvc_x86_64/lib" -lgstreamer-1.0 -lglib-2.0
+
+# Remove duplicate main.qrc
+RESOURCES -= main.qrc
 
 # Manage lrelease (for translations)
 isEmpty(QMAKE_LRELEASE) {

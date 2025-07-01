@@ -26,7 +26,8 @@
 #if __APPLE__
 #include <OpenGL/gl.h>
 #else
-#include <GL/gl.h>
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
 #endif
 
 #include "MM.h"
